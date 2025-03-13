@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  restaurant-booking:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"  # Backend API
+      - "5173:5173"  # Frontend
+    volumes:
+      - ./backend/src/data:/app/backend/src/data
+    environment:
+      - NODE_ENV=production
+      - BACKEND_PORT=3000
+    restart: unless-stopped

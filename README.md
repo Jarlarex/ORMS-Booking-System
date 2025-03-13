@@ -8,6 +8,8 @@ A standalone restaurant booking system that integrates the data structure from O
 - Booking creation and management
 - Availability checking
 - RESTful API for tables, bookings, and availability
+- Docker support for easy deployment
+- Render.com deployment configuration
 
 ## Project Structure
 
@@ -25,6 +27,15 @@ The project is divided into two main parts:
 - `/frontend/vue-project/src/services` - API client services
 - `/frontend/vue-project/src/stores` - Pinia stores for state management
 - `/frontend/vue-project/src/views` - Vue components for booking pages
+
+### Docker & Deployment
+
+- `Dockerfile` - Multi-stage build for production
+- `docker-compose.yml` - Local Docker development setup
+- `render.yaml` - Render.com deployment configuration
+- `.dockerignore` - Files to exclude from Docker builds
+- `start-docker.js` - Docker startup script
+- `start-all.bat` - Windows batch script for local development
 
 ## API Endpoints
 
@@ -84,6 +95,8 @@ The project is divided into two main parts:
 
 ## Getting Started
 
+### Local Development
+
 1. Install dependencies:
 
 ```bash
@@ -99,11 +112,40 @@ npm install
 2. Start the development servers:
 
 ```bash
-# From the project root
+# On Windows, use the batch file
+start-all.bat
+
+# Or use the Node.js script
 node start-servers.js
 ```
 
 This will start both the backend server (on port 3000) and the frontend development server (on port 5173).
+
+### Docker Development
+
+1. Build and run with Docker Compose:
+
+```bash
+docker-compose up --build
+```
+
+This will build the Docker image and start the container with both backend and frontend services.
+
+## Deployment to Render.com
+
+This project includes a `render.yaml` file for easy deployment to Render.com:
+
+1. Push your code to GitHub
+2. In Render.com, create a new "Blueprint" service
+3. Connect your GitHub repository
+4. Render will automatically detect the `render.yaml` file and configure the service
+
+Alternatively, you can:
+
+1. Create a new "Web Service" in Render.com
+2. Select "Docker" as the environment
+3. Connect your GitHub repository
+4. Render will use the Dockerfile to build and deploy your application
 
 ## Integration with OnlineOrderVue
 
