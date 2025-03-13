@@ -25,9 +25,6 @@ COPY --from=backend-builder /app/backend /app/backend
 # Copy frontend build
 COPY --from=frontend-builder /app/frontend/dist /app/frontend/dist
 
-# Copy data files
-COPY backend/src/data /app/backend/src/data
-
 # Install production dependencies only
 WORKDIR /app/backend
 RUN npm install --production
