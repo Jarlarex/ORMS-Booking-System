@@ -10,7 +10,3 @@ services:
         value: production
       - key: BACKEND_PORT
         value: 3000
-    disk:
-      name: data
-      mountPath: /app/backend/src/data
-      sizeGB: 1

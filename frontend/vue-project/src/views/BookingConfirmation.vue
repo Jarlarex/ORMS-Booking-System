@@ -90,10 +90,8 @@ export default {
   },
   async created() {
     try {
-      // Fetch booking details
       this.booking = await bookingsApi.getBooking(this.id);
       
-      // Fetch table details
       const tables = await tablesApi.getAllTables();
       this.table = tables.find(t => t.id.toString() === this.booking.tableId);
     } catch (error) {
@@ -139,7 +137,14 @@ export default {
   margin: 0 auto;
 }
 
-.loading, .error-message {
+.loading {
+  text-align: center;
+  padding: 2rem 0;
+  color: #000000;
+  font-weight: 600;
+}
+
+.error-message {
   text-align: center;
   padding: 2rem 0;
 }
@@ -154,6 +159,12 @@ export default {
 
 .success-content {
   text-align: center;
+}
+
+.success-content h1 {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .success-icon {
@@ -173,7 +184,8 @@ export default {
 .confirmation-message {
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  color: var(--secondary-color);
+  color: #000000;
+  font-weight: 600;
 }
 
 .booking-details {
@@ -182,7 +194,12 @@ export default {
   padding: 1.5rem;
   margin-bottom: 2rem;
   text-align: left;
-  color: #333; /* Darker text for better contrast */
+  color: #000000;
+}
+
+.detail-value {
+  color: #000000;
+  font-weight: 500;
 }
 
 .booking-details h2 {
@@ -199,12 +216,13 @@ export default {
 
 .detail-label {
   font-weight: bold;
-  color: var(--dark-color); /* Darker color for better contrast */
+  color: var(--dark-color);
 }
 
 .confirmation-info {
   margin-bottom: 2rem;
-  color: #333; /* Darker text for better contrast */
+  color: #000000;
+  font-weight: 600;
 }
 
 .confirmation-info p {
@@ -224,10 +242,9 @@ export default {
 }
 
 .btn-secondary:hover {
-  background-color: #1e2749; /* Darker blue */
+  background-color: #1e2749;
 }
 
-/* Media queries for larger screens */
 @media (min-width: 768px) {
   .confirmation-card {
     padding: 3rem;

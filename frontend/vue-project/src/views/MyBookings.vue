@@ -57,7 +57,7 @@
           </div>
           
           <div class="booking-actions">
-            <button @click="cancelBooking(booking.id)" class="btn-secondary" :disabled="isCancelling === booking.id">
+            <button @click="cancelBooking(booking.id)" class="btn" :disabled="isCancelling === booking.id">
               {{ isCancelling === booking.id ? 'Cancelling...' : 'Cancel Reservation' }}
             </button>
           </div>
@@ -85,7 +85,6 @@ export default {
   },
   async created() {
     try {
-      // Load tables data for reference
       this.tables = await tablesApi.getAllTables();
     } catch (error) {
       console.error('Failed to load tables:', error);
@@ -103,8 +102,6 @@ export default {
         this.error = null;
         this.hasSearched = true;
         
-        // In a real application, we would have an API endpoint to search bookings by email
-        // For this demo, we'll fetch all bookings and filter on the client side
         const allBookings = await bookingsApi.getAllBookings();
         this.bookings = allBookings.filter(booking => 
           booking.email.toLowerCase() === this.searchEmail.toLowerCase()
@@ -125,7 +122,6 @@ export default {
           
           await bookingsApi.deleteBooking(id);
           
-          // Remove the cancelled booking from the list
           this.bookings = this.bookings.filter(booking => booking.id !== id);
         } catch (error) {
           this.error = 'Failed to cancel booking. Please try again.';
@@ -165,7 +161,9 @@ export default {
 
 .subtitle {
   margin-bottom: 2rem;
-  color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 .search-section {
@@ -190,6 +188,8 @@ export default {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
+  color: #000000;
+  font-weight: 600;
 }
 
 .bookings-list {
@@ -223,7 +223,12 @@ export default {
 
 .booking-details {
   padding: 1rem;
-  color: #333; /* Darker text for better contrast */
+  color: #000000;
+}
+
+.detail-item {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 .detail-item {

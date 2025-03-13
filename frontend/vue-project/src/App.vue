@@ -22,14 +22,13 @@ export default {
 </script>
 
 <style>
-/* Global styles */
 :root {
-  --primary-color: #1e6f5c; /* Irish green */
-  --secondary-color: #29335c; /* Deep blue */
-  --accent-color: #f0a500; /* Gold */
-  --text-color: #333;
+  --primary-color: #1e6f5c;
+  --secondary-color: #29335c;
+  --accent-color: #f0a500;
+  --text-color: #222;
   --light-color: #f8f9fa;
-  --dark-color: #084c61; /* Teal */
+  --dark-color: #084c61;
   --success-color: #38b000;
   --error-color: #d62828;
 }
@@ -74,7 +73,6 @@ body {
   width: 100%;
 }
 
-/* Mobile-first approach */
 .container {
   width: 100%;
   padding: 0 1rem;
@@ -82,7 +80,6 @@ body {
   max-width: 100%;
 }
 
-/* Buttons */
 .btn {
   display: inline-block;
   background-color: var(--primary-color);
@@ -96,18 +93,19 @@ body {
 }
 
 .btn:hover {
-  background-color: #164b3e; /* Darker green */
+  background-color: #164b3e;
 }
 
 .btn-secondary {
   background-color: var(--secondary-color);
+  color: white;
+  font-weight: 600;
 }
 
 .btn-secondary:hover {
-  background-color: #1e2749; /* Darker blue */
+  background-color: #1e2749;
 }
 
-/* Form elements */
 input, select, textarea {
   width: 100%;
   padding: 0.75rem;
@@ -121,9 +119,9 @@ label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  color: #000000;
 }
 
-/* Responsive breakpoints */
 @media (min-width: 768px) {
   .container {
     max-width: 720px;

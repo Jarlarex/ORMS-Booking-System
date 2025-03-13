@@ -229,7 +229,9 @@ export default {
 
 .subtitle {
   margin-bottom: 2rem;
-  color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 .form {
@@ -253,7 +255,8 @@ export default {
 
 .help-text {
   margin-bottom: 1rem;
-  color: var(--secondary-color);
+  color: var(--text-color);
+  font-weight: 500;
 }
 
 .tables-grid {
@@ -284,6 +287,11 @@ export default {
   color: var(--dark-color);
 }
 
+.table-card p {
+  color: #000000;
+  font-weight: 500;
+}
+
 .form-actions {
   padding: 1.5rem;
   text-align: center;
@@ -306,7 +314,6 @@ export default {
   width: 100%;
 }
 
-/* Media queries for larger screens */
 @media (min-width: 768px) {
   .tables-grid {
     grid-template-columns: repeat(2, 1fr);

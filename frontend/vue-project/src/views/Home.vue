@@ -114,7 +114,8 @@ export default {
 }
 
 .feature-card p {
-  color: #333; /* Darker text for better contrast */
+  color: var(--text-color);
+  font-weight: 500;
 }
 
 .cta {
