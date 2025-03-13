@@ -121,32 +121,6 @@ node start-servers.js
 
 This will start both the backend server (on port 3000) and the frontend development server (on port 5173).
 
-### Docker Development
-
-1. Build and run with Docker Compose:
-
-```bash
-docker-compose up --build
-```
-
-This will build the Docker image and start the container with both backend and frontend services.
-
-## Deployment to Render.com
-
-This project includes a `render.yaml` file for easy deployment to Render.com:
-
-1. Push your code to GitHub
-2. In Render.com, create a new "Blueprint" service
-3. Connect your GitHub repository
-4. Render will automatically detect the `render.yaml` file and configure the service
-
-Alternatively, you can:
-
-1. Create a new "Web Service" in Render.com
-2. Select "Docker" as the environment
-3. Connect your GitHub repository
-4. Render will use the Dockerfile to build and deploy your application
-
 ## Integration with OnlineOrderVue
 
 This project integrates the table and booking data structure from OnlineOrderVue while keeping it as a standalone system. The API structure follows a similar pattern to the OnlineOrderVue booking routes, making it easy to integrate with existing systems.
