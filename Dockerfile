@@ -11,7 +11,16 @@ RUN npm run build
 # Stage 2: Build the backend
 FROM node:18-alpine AS backend-builder
 WORKDIR /app/backend
+# Debug: List the contents of the current directory
+RUN ls -la
+# Debug: List the contents of the parent directory
+RUN ls -la ..
+# Debug: List the contents of the repository root
+RUN ls -la ../..
+# Copy package.json and package-lock.json
 COPY backend/package*.json ./
+# Debug: List the contents after copying package.json
+RUN ls -la
 RUN npm install
 COPY backend/ ./
 RUN npm run build
